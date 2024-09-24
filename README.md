@@ -27,7 +27,7 @@
 </head>
 <body>
 
-    <h2>made by owen dale
+    <h2>made by owen james dale at bhhs|216.186.17.220|
     <h1>Number Guessing Game</h1>
     <p>Guess a number between 1 and 100:</p>
     <input type="number" id="guess" min="1" max="100" />
