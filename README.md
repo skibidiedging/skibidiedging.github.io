@@ -27,6 +27,7 @@
 </head>
 <body>
 
+    <h2>made by owen dale
     <h1>Number Guessing Game</h1>
     <p>Guess a number between 1 and 100:</p>
     <input type="number" id="guess" min="1" max="100" />
