@@ -68,5 +68,4 @@
         window.onload = startGame;
     </script>
 
-</body>
-</html>
+
