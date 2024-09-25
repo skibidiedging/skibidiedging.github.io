@@ -50,10 +50,128 @@
 </head>
 <body>
 
-    <h1>Game Switcher</h1>
+    
     
     <div id="welcomeMessage" style="display: none;"></div>
     <h2>MADE BY OWEN
+
+    <button onclick="showGame('guessing')">Number Guessing Game</button>
+    <button onclick="showGame('snake')">Snake Game</button>
+
+    <div id="guessing" class="game active">
+        <h2>Number Guessing Game</h2>
+        <p>Guess a number between 1 and 100:</p>
+        <input type="number" id="guess" min="1" max="100" />
+        <button onclick="checkGuess()">Submit Guess</button>
+        <div id="message"></div>
+        <button id="restart" style="display:none;" onclick="startGame()">Play Again</button>
+    </div>
+
+    <div id="snake" class="game">
+        <h2>Snake Game</h2>
+        <div id="snake-game">
+            <div class="food"></div>
+        </div>
+        <div id="snakeMessage"></div>
+        <button onclick="startSnakeGame()">Start Game</button>
+    </div>
+
+    <script>
+        // Number Guessing Game Logic
+        let randomNumber;
+        let attempts = 0;
+        let playerName = '';
+
+        function startGame() {
+            randomNumber = Math.floor(Math.random() * 100) + 1;
+            attempts = 0;
+            document.getElementById('message').innerText = '';
+            document.getElementById('restart').style.display = 'none';
+            document.getElementById('guess').value = '';
+        }
+
+        function checkGuess() {
+            const guess = Number(document.getElementById('guess').value);
+            attempts++;
+
+            if (guess < 1 || guess > 100) {
+                document.getElementById('message').innerText = 'Please guess a number between 1 and 100.';
+            } else if (guess < randomNumber) {
+                document.getElementById('message').innerText = 'Too low';
+            } else if (guess > randomNumber) {
+                document.getElementById('message').innerText = 'Too high';
+            } else {
+                document.getElementById('message').innerText = `${playerName}, you won in ${attempts} attempts!`;
+                document.getElementById('restart').style.display = 'block';
+            }
+        }
+
+        function showGame(game) {
+            const games = document.querySelectorAll('.game');
+            games.forEach(g => g.classList.remove('active'));
+            document.getElementById(game).classList.add('active');
+
+            if (game === 'guessing') {
+                startGame(); // Restart the guessing game when shown
+            } else if (game === 'snake') {
+                startSnakeGame(); // Start Snake game
+            }
+        }
+
+      <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Game Switcher</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin-top: 50px;
+        }
+        input {
+            padding: 10px;
+            font-size: 16px;
+            margin: 5px;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            margin: 5px;
+        }
+        .game {
+            display: none;
+        }
+        .active {
+            display: block;
+        }
+        #snake-game {
+            border: 2px solid black;
+            margin: 20px auto;
+            position: relative;
+            width: 400px;
+            height: 400px;
+            background-color: #f0f0f0;
+        }
+        .snake {
+            background-color: green;
+            position: absolute;
+            width: 20px;
+            height: 20px;
+        }
+        .food {
+            background-color: red;
+            position: absolute;
+            width: 20px;
+            height: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="welcomeMessage" style="display: none;"></div>
+    <h2>MADE BY OWEN</h2>
 
     <button onclick="showGame('guessing')">Number Guessing Game</button>
     <button onclick="showGame('snake')">Snake Game</button>
@@ -204,6 +322,3 @@
         // Start the game when the page loads
         window.onload = () => showGame('guessing');
     </script>
-
-</body>
-</html>
