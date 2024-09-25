@@ -3,22 +3,84 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Skibidi Website</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>My Skibidi Games</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            background-color: #33b0ff;
+        }
+        .container {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        input {
+            padding: 10px;
+            margin: 10px 0;
+            width: 80%;
+        }
+        button {
+            padding: 10px 20px;
+            cursor: pointer;
+        }
+        .message {
+            margin: 10px 0;
+            font-weight: bold;
+        }
+    </style>
 </head>
 <body>
-    <header>
-        <nav class="navbar">
-            <button onclick="location.href='game1.html'" class="nav-button">Game 1</button>
-            <button onclick="location.href='game2.html'" class="nav-button">Game 2</button>
-            <button onclick="location.href='game3.html'" class="nav-button">Game 3</button>
-            <button onclick="location.href='game4.html'" class="nav-button">Game 4</button>
-        </nav>
-    </header>
-    <main>
-        <h1>I cooked the site🔥🔥🔥</h1>
-    <h2>if the game doesnt start working imma kms🥰</h2>
+    <div class="container">
+        <h1>Number Guessing Game made by owen</h1>
+        <p>Guess a number between 1 and 100:</p>
+        <input type="number" id="guess" min="1" max="100">
+        <button onclick="checkGuess()">Submit Guess</button>
+        <p class="message" id="message"></p>
+        <button onclick="resetGame()" style="display: none;" id="resetButton">Play Again</button>
+    </div>
 
-    <iframe src="https://sixrobin.itch.io/georgeandtheprinterA" width="800" height="600"></iframe>
+    <script>
+        let randomNumber;
+        let attempts = 0;
+
+        function startGame() {
+            randomNumber = Math.floor(Math.random() * 100) + 1;
+            attempts = 0;
+            document.getElementById('message').textContent = '';
+            document.getElementById('resetButton').style.display = 'none';
+        }
+
+        function checkGuess() {
+            const userGuess = Number(document.getElementById('guess').value);
+            attempts++;
+
+            if (userGuess < 1 || userGuess > 100 || isNaN(userGuess)) {
+                document.getElementById('message').textContent = 'Please enter a valid number between 1 and 100.';
+                return;
+            }
+
+            if (userGuess === randomNumber) {
+                document.getElementById('message').textContent = `Congratulations! You guessed the number in ${attempts} attempts!`;
+                document.getElementById('resetButton').style.display = 'inline';
+            } else if (userGuess < randomNumber) {
+                document.getElementById('message').textContent = 'Too low! Try again.';
+            } else {
+                document.getElementById('message').textContent = 'Too high! Try again.';
+            }
+        }
+
+        function resetGame() {
+            startGame();
+            document.getElementById('guess').value = '';
+        }
+
+        startGame();
+    </script>
 </body>
 </html>
