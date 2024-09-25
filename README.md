@@ -55,11 +55,11 @@
             if (guess < 1 || guess > 100) {
                 document.getElementById('message').innerText = 'I said 1-100 dumbass.';
             } else if (guess < randomNumber) {
-                document.getElementById('message').innerText = 'Too low dont be a re re next time.';
+                document.getElementById('message').innerText = 'Too low';
             } else if (guess > randomNumber) {
                 document.getElementById('message').innerText = 'Number to big just like me.';
             } else {
-                document.getElementById('message').innerText = `Congratulations! You've guessed the number in ${attempts} attempts!`;
+                document.getElementById('message').innerText = `You won in ${attempts} bet you cant do it again tho`;
                 document.getElementById('restart').style.display = 'block';
             }
         }
