@@ -47,10 +47,7 @@
 
     <h1>Game Switcher</h1>
     
-    <div>
-        <input type="text" id="playerName" placeholder="Enter your name" />
-        <button onclick="setName()">Submit Name</button>
-    </div>
+    
     
     <div id="welcomeMessage" style="display: none;"></div>
 
