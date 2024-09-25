@@ -53,6 +53,7 @@
     <h1>Game Switcher</h1>
     
     <div id="welcomeMessage" style="display: none;"></div>
+    <h2>MADE BY OWEN
 
     <button onclick="showGame('guessing')">Number Guessing Game</button>
     <button onclick="showGame('snake')">Snake Game</button>
