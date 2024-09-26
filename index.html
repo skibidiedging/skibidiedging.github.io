@@ -62,17 +62,16 @@
 
             if (userGuess < 1 || userGuess > 100 || isNaN(userGuess)) {
                 document.getElementById('message').textContent = 'are you a dumbass??? i said 1-100';
-                Alert('installing malware...')
                 return;
             }
 
             if (userGuess === randomNumber) {
-                document.getElementById('message').textContent = `Congratulations! You guessed the number in ${attempts} attempts!`;
+                document.getElementById('message').textContent = `Congratulations! You guessed the number ${randomNumber} in ${attempts} attempts!`;
                 document.getElementById('resetButton').style.display = 'inline';
             } else if (userGuess < randomNumber) {
-                document.getElementById('message').textContent = 'too low';
+                document.getElementById('message').textContent = ${userGuess} is too low.`;
             } else {
-                document.getElementById('message').textContent = 'too high';
+                document.getElementById('message').textContent = `${userGuess} is too high.`;
             }
         }
 
