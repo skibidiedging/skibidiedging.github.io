@@ -62,7 +62,7 @@
             attempts++;
 
             if (userGuess < 1 || userGuess > 100 || isNaN(userGuess)) {
-                document.getElementById('message').textContent = 'Please enter a valid number between 1 and 100!';
+                document.getElementById('message').textContent = 'are you a dimbass??? i said 1-100';
                 return;
             }
 
@@ -70,9 +70,9 @@
                 document.getElementById('message').textContent = `Congratulations! You guessed the number ${randomNumber} in ${attempts} attempts!`;
                 document.getElementById('resetButton').style.display = 'inline';
             } else if (userGuess < randomNumber) {
-                document.getElementById('message').textContent = `${userGuess} is too low. Try again!`;
+                document.getElementById('message').textContent = `${userGuess} is too low`;
             } else {
-                document.getElementById('message').textContent = `${userGuess} is too high. Try again!`;
+                document.getElementById('message').textContent = `${userGuess} is too high`;
             }
         }
 
