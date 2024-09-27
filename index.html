@@ -54,6 +54,7 @@
             attempts = 0;
             document.getElementById('message').textContent = '';
             document.getElementById('resetButton').style.display = 'none';
+            document.getElementById('guess').value = ''; // Clear the input field
         }
 
         function checkGuess() {
@@ -61,7 +62,7 @@
             attempts++;
 
             if (userGuess < 1 || userGuess > 100 || isNaN(userGuess)) {
-                document.getElementById('message').textContent = 'are you a dumbass??? i said 1-100';
+                document.getElementById('message').textContent = 'Please enter a valid number between 1 and 100!';
                 return;
             }
 
@@ -69,12 +70,14 @@
                 document.getElementById('message').textContent = `Congratulations! You guessed the number ${randomNumber} in ${attempts} attempts!`;
                 document.getElementById('resetButton').style.display = 'inline';
             } else if (userGuess < randomNumber) {
-                document.getElementById('message').textContent = ${userGuess} wrong.`
+                document.getElementById('message').textContent = `${userGuess} is too low. Try again!`;
+            } else {
+                document.getElementById('message').textContent = `${userGuess} is too high. Try again!`;
+            }
         }
 
         function resetGame() {
             startGame();
-            document.getElementById('guess').value = '';
         }
 
         startGame();
