@@ -8,7 +8,7 @@
 </head>
 <body>
     <header>
-        <h1>Ice Cream Flavor Survey</h1>
+        <h1>Ice Cream Flavor Survey|read me|</h1>
         <nav>
             <ul>
                 <li><a href="#survey">Survey</a></li>
