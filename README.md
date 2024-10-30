@@ -55,7 +55,7 @@
     </main>
 
     <footer>
-        <p>&copy; 2024 Ice Cream Survey. All rights reserved.</p>
+        <p>&copy; 2024 PasterXPaster. All rights reserved.</p>
     </footer>
 </body>
 </html>
