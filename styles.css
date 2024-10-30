@@ -59,6 +59,11 @@ input, select, textarea {
     border: 1px solid #ccc;
     border-radius: 4px;
     margin-bottom: 10px;
+    transition: border-color 0.3s;
+}
+
+input:focus, select:focus, textarea:focus {
+    border-color: #007BFF;
 }
 
 button {
@@ -68,6 +73,7 @@ button {
     border: none;
     border-radius: 4px;
     cursor: pointer;
+    transition: background 0.3s;
 }
 
 button:hover {
@@ -82,4 +88,8 @@ footer {
     position: relative;
     bottom: 0;
     width: 100%;
+}
+
+.hidden {
+    display: none;
 }
