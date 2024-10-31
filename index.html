@@ -5,18 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ice Cream Survey</title>
     <link rel="stylesheet" href="styles.css">
-    <style>
-        .hidden {
-            display: none;
-        }
-    </style>
 </head>
 <body>
     <header>
         <h1>Ice Cream Flavor Survey</h1>
         <nav>
             <ul>
-                <li><a href="#pasted by owen">Survey</a></li>
+                <li><a href="#survey">Survey</a></li>
             </ul>
         </nav>
     </header>
@@ -24,7 +19,7 @@
     <main>
         <section id="survey">
             <h2>What’s Your Favorite Ice Cream Flavor?</h2>
-            <form>
+            <form id="surveyForm">
                 <label for="name">Name:</label>
                 <input type="text" id="name" name="name" required>
 
@@ -37,21 +32,54 @@
                     <option value="mint">Mint</option>
                     <option value="cookie_dough">Cookie Dough</option>
                     <option value="rocky_road">Rocky Road</option>
-                    <option value="CookieAndCream">Cookies and CREAM</option>
-                    <option value="Kellanscream"> Kellan's CREAM</option>   
+                    <option value="cookies_and_cream">Cookies and Cream</option>
+                    <option value="kellans_cream">Kellan's Cream</option>   
                 </select>
 
                 <label for="feedback">Additional Comments:</label>
                 <textarea id="feedback" name="feedback" rows="4"></textarea>
 
                 <button type="submit">Submit Survey</button>
+            </form>
 
+            <div id="results" class="hidden">
+                <h2>Survey Results</h2>
+                <ul id="resultList"></ul>
+            </div>
+        </section>
+    </main>
 
     <footer>
         <p>&copy; 2024 PasterXPaster1337@gmail.com. All rights reserved.</p>
     </footer>
 
+    <script src="survey.js"></script>
     <script>
-<script src="survey.js"></script>
+        document.getElementById('surveyForm').addEventListener('submit', function(event) {
+            event.preventDefault(); // Prevent form submission
+
+            const name = document.getElementById('name').value;
+            const flavor = document.getElementById('flavors').value;
+            const feedback = document.getElementById('feedback').value;
+
+            displayResult(name, flavor, feedback);
+
+            // Reset the form
+            this.reset();
+        });
+
+        const displayResult = (name, flavor, feedback) => {
+            const resultsDiv = document.getElementById('results');
+            const resultList = document.getElementById('resultList');
+
+            // Create a new list item for the result
+            const listItem = document.createElement('li');
+            listItem.textContent = `${name} likes ${flavor}. Comments: ${feedback}`;
+            resultList.appendChild(listItem);
+
+            // Show the results section
+            resultsDiv.classList.remove('hidden');
+        };
+    </script>
 </body>
 </html>
