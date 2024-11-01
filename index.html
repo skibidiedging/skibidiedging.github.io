@@ -65,12 +65,20 @@
             kellans_cream: 0,
         };
 
+        const blockedNames = ["eli", "kellan", "your mom"]; // Add blocked names here
+
         document.getElementById('surveyForm').addEventListener('submit', function(event) {
             event.preventDefault(); // Prevent default form submission
 
-            const name = document.getElementById('name').value;
+            const name = document.getElementById('name').value.trim();
             const flavor = document.getElementById('flavors').value;
             const feedback = document.getElementById('feedback').value;
+
+            // Check if the name is blocked
+            if (blockedNames.includes(name)) {
+                alert("Your name is blocked because no one likes you");
+                return; // Stop processing if the name is blocked
+            }
 
             // Update vote count for the selected flavor
             if (flavor) {
