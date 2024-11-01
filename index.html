@@ -32,7 +32,7 @@
                     <option value="mint">Mint</option>
                     <option value="cookie_dough">Cookie Dough</option>
                     <option value="rocky_road">Rocky Road</option>
-                    <option value="cookies_and_cream">Cookies and Cream</option> 
+                    <option value="cookies_and_cream">Cookies and Cream</option>  
                 </select>
 
                 <label for="feedback">Additional Comments:</label>
@@ -50,7 +50,7 @@
     </main>
 
     <footer>
-        <p>&copy; 2024 iimselliingyourdata@gmail.com. All rights reserved.</p>
+        <p>&copy; 2024  imsellingyourdata@gmail.com. All rights reserved.</p>
     </footer>
 
     <script>
@@ -62,10 +62,9 @@
             cookie_dough: 0,
             rocky_road: 0,
             cookies_and_cream: 0,
-            kellans_cream: 0,
         };
 
-        const blockedNames = ["your mom", "eli", "kellan"]; // Add blocked names here
+        const blockedNames = ["eli", "kellan", "skibidi toilet"]; // Add blocked names here
 
         document.getElementById('surveyForm').addEventListener('submit', function(event) {
             event.preventDefault(); // Prevent default form submission
@@ -76,7 +75,7 @@
 
             // Check if the name is blocked
             if (blockedNames.includes(name)) {
-                alert("No one likes you.");
+                alert("Your name is blocked from submitting the survey.");
                 return; // Stop processing if the name is blocked
             }
 
@@ -111,19 +110,27 @@
             resultsDisplay.appendChild(mostVotedMessage);
         }
 
-        // Function to show vote counts
+        // Function to show or hide vote counts
         function showVoteCounts() {
-            const countsMessage = document.createElement('div');
-            countsMessage.innerHTML = '<h3>Vote Counts:</h3>';
-            
-            for (const flavor in voteCounts) {
-                const flavorCount = document.createElement('p');
-                flavorCount.textContent = `${flavor}: ${voteCounts[flavor]} votes`;
-                countsMessage.appendChild(flavorCount);
-            }
+            const countsMessage = document.getElementById('voteCounts');
+            if (countsMessage) {
+                // If counts are already displayed, hide them
+                countsMessage.remove();
+            } else {
+                // Create and display the vote counts
+                const countsMessage = document.createElement('div');
+                countsMessage.id = 'voteCounts'; // Give it an ID for easy removal
+                countsMessage.innerHTML = '<h3>Vote Counts:</h3>';
+                
+                for (const flavor in voteCounts) {
+                    const flavorCount = document.createElement('p');
+                    flavorCount.textContent = `${flavor}: ${voteCounts[flavor]} votes`;
+                    countsMessage.appendChild(flavorCount);
+                }
 
-            const resultsDisplay = document.getElementById('results');
-            resultsDisplay.appendChild(countsMessage);
+                const resultsDisplay = document.getElementById('results');
+                resultsDisplay.appendChild(countsMessage);
+            }
         }
 
         // Event listener for the show votes button
