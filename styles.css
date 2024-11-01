@@ -1,4 +1,4 @@
-a* {
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -103,4 +103,25 @@ footer {
 
 #showVotes:hover {
     background: #218838; /* Darker green on hover */
+}
+
+/* Additional Styles */
+#results {
+    margin-top: 20px; /* Add some space above results */
+}
+
+#results h2 {
+    margin-bottom: 15px; /* Space below the title */
+}
+
+#resultList {
+    margin-top: 10px; /* Space above the result list */
+}
+
+#voteCounts {
+    margin-top: 15px; /* Space above vote counts */
+    border: 1px solid #ccc;
+    padding: 10px;
+    border-radius: 4px;
+    background-color: #f9f9f9; /* Light background for the counts */
 }
